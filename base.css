@@ -1,0 +1,108 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:700|Exo+2:300,600); 
+2 
+ 
+3 /* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */ 
+4 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0} 
+5 
+ 
+6 /* Solarized Palette - http://ethanschoonover.com/solarized --------- 
+7   lightgray      : #819090; 
+8   gray           : #708284; 
+9   mediumgray     : #536870; 
+10   darkgray       : #475B62; 
+11   darkblue       : #0A2933; 
+12   darkerblue     : #042029; 
+13   paleryellow    : #FCF4DC; 
+14   paleyellow     : #EAE3CB; 
+15   yellow         : #A57706; 
+16   orange         : #BD3613; 
+17   red            : #D11C24; 
+18   pink           : #C61C6F; 
+19   purple         : #595AB7; 
+20   blue           : #2176C7; 
+21   cyan           : #259286; 
+22   green          : #738A05; */ 
+23 
+ 
+24 body { 
+25   font-family: "Exo 2", "Helvetica Neue", Helvetica, sans-serif; 
+26   font-weight: 300; 
+27   font-size: 1.2em; 
+28   line-height: 1.2em; 
+29   background: #FDF6E3; 
+30   color: #475B62; 
+31 } 
+32 
+ 
+33 strong { 
+34   font-weight: 600; 
+35 } 
+36 
+ 
+37 h1, h2, h3, h4, h5, h6 { 
+38   font-family: 'Roboto Slab', "Helvetica Neue", Helvetica, sans-serif; 
+39   font-weight: 700; 
+40   color: #CB4B19; 
+41   font-size: 1.75em; 
+42   margin-bottom: .4em; 
+43 } 
+44 
+ 
+45 p { 
+46   margin-bottom: .5em; 
+	 font-family: "Helvetica";
+47 } 
+48 
+ 
+49 .container { 
+50   width: 80%; 
+51   max-width: 1200px; 
+52   margin: 0 auto; 
+53   margin-top:10px; 
+54 } 
+55 
+ 
+56 @media all and (max-width: 500px) { 
+57   h2 { 
+58     padding-left: 10px; 
+59     text-align: center; 
+60   } 
+61   .container { 
+62     width: 100%; 
+63   } 
+64 } 
+65 
+ 
+66 #graphic { 
+67   margin: 0 auto; 
+68 } 
+
+#intro{
+	font-family: 'Roboto Slab';
+	font-weight: 700;
+	font-size: 3.5em;
+	color: #CB4B19;
+	position: inline;
+	margin: 75px 0px 75px 50px;
+}
+#window{
+	font-family:'Roboto Slab';
+}
+
+button{
+	margin:5px;
+	border-radius: 5px;
+	font-family: "Helvetica";
+	position: relative;
+
+}
+
+#button_box{
+	background: pink;
+	padding: 5px;
+	float: right;
+	width: 90px;
+	border-radius: 10px;
+	margin-left: 10px;
+
+}

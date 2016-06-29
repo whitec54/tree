@@ -1,0 +1,159 @@
+  {
+    "name": "portfolio 1",
+    "children": [
+      {
+        "name": "domain 1",
+        "children": [
+          {
+            "name": "category 1",
+			"children": [
+			  {
+				"name": "app 1",
+				"recs": [
+					"<br>make it blue",
+					"<br>go faster",
+					"<br>we are the knights who say ni"
+				],
+				"arts": [
+					"<br>The Holy Grail",
+					"<br>The Holy hand grenade"
+				],
+				"health":5
+			  },
+			  {
+				"name": "app 2",
+				"recs": [
+					"<br>needs sugar",
+					"<br>needs salt",
+					"<br>make it taller"
+				],
+				"arts": [],
+				"health":5
+			  }
+			],
+				"health":5
+          },
+          {
+            "name": "category 2",
+			"children": [
+			  {
+				"name": "app 3",
+				"recs": [
+					"<br>make it shorter",
+					"<br>go slower",
+					"<br>it's backwards"
+				],
+				"arts": [],
+				"health":4
+			  },
+			  {
+				"name": "app 4",
+				"recs": [
+					"<br>it's upside down",
+					"<br>go away",
+					"<br>spin three times"
+				],
+				"arts": [
+					"<br>brave brave Sir Robin",
+					"<br>Bravely ran Away",
+					"<br>I did not!"
+				],
+				"health":5
+			  },
+			  {
+				"name": "app 5",
+				"recs": [
+					"<br>rec eight",
+					"<br>rec nine",
+					"<br>rec ten"
+				],
+				"arts": ["<br>Do a barrel role"],
+				"health":4
+			  }
+			],
+				"health":4.66
+          }
+        ],
+				"health":4.8
+      },
+      {
+        "name": "domain 2",
+		"children": [
+          {
+            "name": "category 3",
+			"children": [
+			  {
+				"name": "app 6",
+				"recs": [
+					"<br>rec eleven",
+					"<br>rec twelve",
+					"<br>rec thirteen"
+				],
+				"arts": [],
+				"health":3
+			  },
+			  {
+				"name": "app 7",
+				"recs": [
+					"<br>rec fourteen",
+					"<br>rec fifteen",
+					"<br>rec sixteen"
+				],
+				"arts": [],
+				"health":2
+			  },
+			  {
+				"name": "app 8",
+				"recs": [
+					"<br>rec eighteen",
+					"<br>rec nineteen",
+					"<br>rec twenty"
+				],
+				"arts": [],
+				"health":3
+			  },
+			  {
+				"name": "app 9",
+				"recs": [
+					"<br>rec 21",
+					"<br>22",
+					"<br>23"
+				],
+				"arts": [],
+				"health":2
+			  }
+			],
+				"health":2.5
+          },
+          {
+            "name": "category 4",
+			"children": [
+			  {
+				"name": "app 10",
+				"recs": [
+					"<br>24",
+					"<br>25",
+					"<br>26"
+				],
+				"arts": [],
+				"health":1
+			  },
+			  {
+				"name": "app 11",
+				"recs": [
+					"<br>27",
+					"<br>28",
+					"<br>29"
+				],
+				"arts": [],
+				"health":1
+			  }
+			],
+				"health":1
+          }
+        ],
+				"health":1
+      }
+    ],
+				"health":1
+  }

@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>D3 tutorial</title>
+	<script src ="https://d3js.org/d3.v3.min.js"></script>
+	<link rel="stylesheet" href="base.css">
+</head>
+
+
+
+
+<body>
+	<h1 id="intro">Look at this Data yo</h1>
+	<div id="button_box">
+			<button type="button" onclick="draw_tree('mydata.json')">Portfolio 1</button>
+			<button type="button" onclick="draw_tree('mydata2.json')">Portfolio 2</button>
+	</div>
+	<script>
+		
+		var colorScale = d3.scale.linear()
+			.domain([0,2.5,5])
+			.range(["red","yellow","green"])
+	  
+		var canvas = d3.select("body")
+			.style("background","#FCF4DC")
+			.append("svg")
+			.attr("height",800)
+			.attr("width",1200)
+				.append("g")
+				.attr("transform","translate(70,25)");
+				
+					
+		var tree = d3.layout.tree()
+			.size([700,1000]);
+			
+		var draw_tree = function(source){
+
+			d3.selectAll("#window").remove();
+			canvas.selectAll("*").remove();
+
+			d3.json(source, function(data){
+				var nodes = tree.nodes(data);
+				var links = tree.links(nodes);
+				
+				var root = nodes[0];
+						
+				var diagonal = d3.svg.diagonal()
+					.projection(function(d){return [d.y,d.x]})
+
+				var window = d3.select("body").append("div")
+					.attr("id","window")
+					.style("position","inline")
+					.style("float","right")
+					.style("padding","0 10px")
+					.style("margin","50px 145px 0px 20px")
+					.style("background","#D11C24")
+					.style("opacity",.9)
+					.style("width","200px")
+					.style("border-radius","10px")
+					.html("<h1>recs</h1>")
+					
+				var window2 = d3.select("body").append("div")
+					.attr("id","window")
+					.style("position","inline")
+					.style("float","right")
+					.style("padding","0 10px")
+					.style("margin","50px 0px 0px 0px")
+					.style("background","#738A05")
+					.style("opacity",.9)
+					.style("width","200px")
+					.style("border-radius","10px")
+					.html("<h1>artifacts</h1>")
+				
+				var link = canvas.selectAll(".link")
+					.data(links)
+					.enter()
+					.append("path")
+					.attr("stroke","grey")
+					.attr("class","link")
+					.attr("fill","none")
+					.attr("d",diagonal)
+					.attr("stroke-width",function(d){return d.target.health})
+					.attr("opacity",0)
+
+				var node = canvas.selectAll(".node")
+					.data(nodes)
+					.enter()
+					.append("g")
+						.attr("class","node")
+						.attr("transform",function(d) {return "translate("+root.y+","+root.x+")"})
+						
+					
+				
+				node.append("circle")
+					.attr("r",10)
+					.attr("fill", function(d){return colorScale(d.health)})
+					.on("mouseover",function(d){
+						d3.select(this)
+							.attr("fill","white")
+							.attr("stroke","black")
+							
+						window.transition()
+							.style("opacity",".9")
+							.style("width","200px")
+						
+						
+						//fill the artifact div 
+						if(d.depth === 3){
+							var print = "";
+						
+							for(i=0;i<d.arts.length;i++){
+							print += d.arts[i];
+							}
+							window2.html("<h1 id=window>artifacts</h1>"+"<p>"+ print + "</p>")
+						}
+						else if(d.depth === 2){
+							var print = "";
+							
+							for(i=0;i<d.children.length;i++){
+								for(j=0;j<d.children[i].arts.length;j++){
+									print += d.children[i].arts[j];
+								}
+							}
+							
+							window2.html("<h1 id=window>artifacts</h1>"+"<p>"+ print + "</p>")
+						}
+						
+						
+						//fill the recommendation div  
+						if(d.depth === 3){
+							var print = "";
+						
+							for(i=0;i<d.recs.length;i++){
+							print += d.recs[i];
+							}
+							window.html("<h1 id=window>recs</h1>"+"<p>"+ print + "</p>")
+						}
+						else if(d.depth === 2){
+							var print = "";
+							
+							for(i=0;i<d.children.length;i++){
+								for(j=0;j<d.children[i].recs.length;j++){
+									print += d.children[i].recs[j];
+								}
+							}
+							
+							window.html("<h1 id=window>recs</h1>"+"<p>"+ print + "</p>")
+						}
+						else if(d.depth === 1){
+							var print = "";
+							/*
+							for(i=0;i<d.children.length;i++){
+								for(j=0;j<d.children[i].children.length;j++){
+									for(k=0;d.children[i].children[j].recs.length;k++){
+										print += d.children[i].children[j].recs[k];
+									}
+								}
+							}*/
+							window.html("<h1 id=window>recs</h1>"+"<p>"+ print + "</p>")
+						}
+						else{
+							window.html("<h1 id=window>recs</h1>"+"<p>"+ "root" + "</p>")
+						}
+						
+						
+						
+						
+						
+						
+					})
+					.on("mouseout",function(d){
+						d3.select(this)
+							.attr("fill", function(d){return colorScale(d.health)})
+							.attr("stroke","none")
+					})
+					
+				node.append("text")
+					.text(function(d){return d.name;})
+					.attr("transform",function(d){
+						if(d.children){
+							return "translate(-30,-25)";
+						}
+						else {
+							return "translate(25,5)"
+						};})
+
+				link.transition()
+					.delay(1000)
+					.duration(500)
+					.attr("opacity",1)
+					
+
+					
+				node.transition()
+					.duration(1000)
+					.attr("transform",function(d) {return "translate("+d.y+","+d.x+")"})
+
+			})
+		}
+
+		
+
+		//draw_tree("mydata.json");
+	</script>
+
+
+
+</body>
+
+</html>
